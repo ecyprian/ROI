@@ -1,0 +1,39 @@
+@import '~@angular/material/theming';
+@import "vt-theme-colors";
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+
+$vt-app-primary: mat-palette($vt-primary, 500);
+$vt-app-accent:  mat-palette($vt-accent, 500);
+$vt-app-warn:    mat-palette($vt-warn, 500);
+// Create the theme object (a Sass map containing all of the palettes).
+$vt-app-theme: mat-light-theme($vt-app-primary, $vt-app-accent, $vt-app-warn);
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($vt-app-theme);
+
+body {
+    margin:0;
+}
+
+h1 {
+    background-image: url('/assets/img/brandmark-white.png');
+    background-repeat: no-repeat;
+    background-position:left center;
+    background-size:20px 20px;
+    padding-left: 40px;
+    font-size: 28pt;
+}
+
+.fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }

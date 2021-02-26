@@ -1,0 +1,15 @@
+<div class="container" fxLayout="column">
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <h1> Active Reader ROI Calculator</h1>
+            <span class="fill-remaining-space"></span>
+            <span *ngIf="isAuthenticated">Welcome Back {{RoiUser.name}}</span>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <!-- load when api hits -->
+    <angular-loader></angular-loader>
+    <!-- for dynamic component load -->
+    <router-outlet></router-outlet>
+    <!-- for error in api's-->
+    <app-dialogModel></app-dialogModel>
+</div>

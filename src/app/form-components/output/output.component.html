@@ -1,0 +1,9 @@
+<div fxLayout="row" fxLayoutGap="20px" fxFlexAlign="center center" class="output-div">
+  <div fxFlex="60%" class="label">
+    <label>{{category.name}}</label>
+  </div>
+  <div fxFlex="30%" class="output">
+    <input fxFill matInput [readonly]=true type="text" [ngModel]="formatedOutputValue">
+    <span *ngIf="category.frequency && category.outputFormat=='numeric-decimal-$'" class="highlight-label-tag">{{category.frequency}}</span>
+  </div>
+</div>

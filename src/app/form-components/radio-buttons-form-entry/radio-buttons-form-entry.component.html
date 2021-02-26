@@ -1,0 +1,12 @@
+<mat-card  *ngIf="isVisible" >
+  <mat-card-title>
+    {{input.question}}
+  </mat-card-title>
+  <mat-card-content>
+    <mat-radio-group [ngModel]="inputValue" (change)="radioSelectionChanged($event)"> 
+      <mat-radio-button *ngFor="let inputOption of input.inputOptions" [value]="inputOption.value">
+        {{inputOption.value}}
+      </mat-radio-button>
+    </mat-radio-group>
+  </mat-card-content>
+</mat-card>

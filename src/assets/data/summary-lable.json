@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Production Costs",
+        "status": true,
+        "type": "summary"
+    },
+    {
+        "id": 2,
+        "name": "Labor Costs",
+        "status": true,
+        "type": "summary"
+    },
+    {
+        "id": 3,
+        "name": "Risk Management",
+        "status": true,
+        "type": "summary"
+    },
+    {
+        "id": 4,
+        "name": "Revenue",
+        "status": true,
+        "type": "summary"
+    },
+    {
+        "id": 5,
+        "name": "Active Reader",
+        "status": true,
+        "type": "summary"
+    }
+]

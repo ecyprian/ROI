@@ -1,0 +1,123 @@
+<div fxLayout="column">
+  <div id="setup">
+    <mat-card class="form-card">
+      <mat-card-title>Customer</mat-card-title>
+      <div fxLayout="row" fxLayoutGap="10px" fxFlexAlign="center center" class="input-div">
+        <div fxFlex="70%" class="label">
+          <label>Customer ID</label>
+        </div>
+        <div fxFlex="30%" class="input">
+          <input class="text-input" [(ngModel)]="customer.id" matInput>
+        </div>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="10px" fxFlexAlign="center center" class="input-div">
+        <div fxFlex="70%" class="label">
+          <label>Customer Name</label>
+        </div>
+        <div fxFlex="30%" class="input">
+          <input class="text-input" [(ngModel)]="customer.name" matInput>
+        </div>
+      </div>
+    </mat-card>
+
+    <mat-card class="form-card">
+      <mat-card-title>Contact</mat-card-title>
+      <div fxLayout="row" fxLayoutGap="10px" fxFlexAlign="center center" class="input-div">
+        <div fxFlex="70%" class="label">
+          <label>Primary Contact First Name</label>
+        </div>
+        <div fxFlex="30%" class="input">
+          <input class="text-input" [(ngModel)]="customer.contactFirstName" matInput>
+        </div>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="10px" fxFlexAlign="center center" class="input-div">
+        <div fxFlex="70%" class="label">
+          <label>Primary Contact Last Name</label>
+        </div>
+        <div fxFlex="30%" class="input">
+          <input class="text-input" [(ngModel)]="customer.contactLastName" matInput>
+        </div>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="10px" fxFlexAlign="center center" class="input-div">
+        <div fxFlex="70%" class="label">
+          <label>Primary Contact Email</label>
+        </div>
+        <div fxFlex="30%" class="input">
+          <input class="text-input" [(ngModel)]="customer.contactEmail" matInput>
+        </div>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="10px" fxFlexAlign="center center" class="input-div">
+        <div fxFlex="70%" class="label">
+          <label>Primary Contact Work Phone</label>
+        </div>
+        <div fxFlex="30%" class="input">
+          <input class="text-input" [(ngModel)]="customer.contactWorkPhone" matInput>
+        </div>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="10px" fxFlexAlign="center center" class="input-div">
+        <div fxFlex="70%" class="label">
+          <label>Primary Contact Mobile Phone</label>
+        </div>
+        <div fxFlex="30%" class="input">
+          <input class="text-input" [(ngModel)]="customer.contactMobilePhone" matInput>
+        </div>
+      </div>
+    </mat-card>
+
+    <mat-card class="form-card">
+      <mat-card-title>Scenario</mat-card-title>
+      <div fxLayout="row" fxLayoutGap="10px" fxFlexAlign="center center" class="input-div">
+        <div fxFlex="70%" class="label">
+          <label>Scenario ID</label>
+        </div>
+        <div fxFlex="30%" class="input">
+          <input class="text-input" [(ngModel)]="scenario.id" matInput>
+        </div>
+      </div>
+
+      <!-- If Customer & Scenario are seperated later, scenario should be linked to a customer, for now we will just use the customer's form -->
+
+      <!-- <div fxLayout="row" fxLayoutGap="10px" fxFlexAlign="center center" class="input-div">
+          <div fxFlex="70%" class="label">
+            <label>Customer ID</label>
+          </div>
+          <div fxFlex="30%" class="input">
+              <input [(ngModel)]="scenario.customerId" matInput>
+          </div>
+        </div> -->
+
+      <div fxLayout="row" fxLayoutGap="10px" fxFlexAlign="center center" class="input-div">
+        <div fxFlex="70%" class="label">
+          <label>Description</label>
+        </div>
+        <div fxFlex="30%" class="input">
+          <input class="text-input" [(ngModel)]="scenario.description" matInput>
+        </div>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="10px" fxFlexAlign="center center" class="input-div">
+        <div fxFlex="70%" class="label">
+          <label>Term</label>
+        </div>
+        <div fxFlex="30%" class="input">
+          <input class="text-input" [(ngModel)]="scenario.term" matInput>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+
+  <div class="setupPageButtons">
+      <button id="submit-scenario-button" mat-raised-button color="primary" (click)="GetReportData();">
+          View Saved Reports</button>
+    <button id="submit-scenario-button" mat-raised-button color="primary" (click)="UseTestData();">
+      Test Customer 1</button>
+    <button id="submit-scenario-button" mat-raised-button color="primary" routerLink="/calc" (click)="submitScenario()">
+      Calculate Savings!
+    </button>
+  </div>
+</div>

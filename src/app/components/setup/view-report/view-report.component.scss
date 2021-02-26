@@ -1,0 +1,31 @@
+table {
+    width: 100%;
+}
+th.mat-header-cell {
+    text-align: center !important;
+}
+td.mat-cell
+{
+    text-align: center!important;
+}
+mat-icon {
+    cursor: pointer;
+}
+th.mat-sort-header-sorted {
+    color: black;
+}
+.mat-row.hovered {
+    background: #eee;
+}
+
+.mat-row.highlighted {
+  background: #999;
+}
+th.mat-sort-header-sorted {
+    color: black;
+}
+.popupheading{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: inline-block;
+}

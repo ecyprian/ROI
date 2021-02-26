@@ -1,0 +1,59 @@
+ <!-- The Modal -->
+ <div class="modal pmodals error" id="myModal" *ngIf="condition == 'error'">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <!-- Modal body -->
+        <div class="modal-body">
+            <h2>Note</h2>
+            <img src="assets/img/error.png"/>
+           <p class="fnt-size-30">{{message}}</p>
+
+           <button type="button" class="btn btn-primary" id="btnOk" data-dismiss="modal">Ok</button>
+        </div>
+        
+       
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="modal pmodals information" id="myModal" *ngIf="condition == 'success'" >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <!-- Modal body -->
+            <div class="modal-body">
+                <h2>Information</h2>
+                    <!-- <i class="fa fa-info-circle"></i> -->
+                    <img src="assets/img/success.png"/>
+               <p  class="fnt-size-30">{{message}}</p>
+    
+               <button type="button" class="btn btn-primary" id="btnOk" data-dismiss="modal">Ok</button>
+            </div>
+            
+           
+          </div>
+        </div>
+      </div>
+  
+      
+
+      <div class="modal pmodals success" id="myModal"  *ngIf="condition == 'success' && page == ''" >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <!-- Modal body -->
+                <div class="modal-body">
+                  <h4>Note</h4>
+                  
+                    <img src="assets/images/success.png"/>
+                        <!-- <i class="fa fa-check-circle"></i> -->
+                   <p>{{message}}</p>
+        
+                   <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnOk" >Ok</button>
+                </div>
+                
+               
+              </div>
+            </div>
+          </div>
+          
+

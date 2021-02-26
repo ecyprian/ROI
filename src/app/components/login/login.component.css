@@ -1,0 +1,27 @@
+.login-card-container {
+    height: 90vh;
+}
+
+.mat-card-header {
+    background-color: #04559f !important;
+    color: white;
+    padding: 16px 16px 4px 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.mat-card {
+    padding: 0 !important;
+}
+
+.mat-card-content {
+    padding: 16px !important;
+}
+
+.mat-card-content p {
+    margin-bottom: 28px;
+}
+
+.mat-card-content button {
+    margin-bottom: 10px;
+}

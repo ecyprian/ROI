@@ -1,0 +1,1308 @@
+<div class="group-form mat-card">
+  <div fxLayout="row" fxLayoutGap="20px">
+    <button mat-raised-button (click)="calculate()">
+      {{calculateButton}}
+    </button>
+    <button mat-raised-button (click)="printReport()">
+      Print
+    </button>
+    <button mat-raised-button (click)="saveReport()">
+      Save
+    </button>
+    <button mat-raised-button routerLink="/setup">
+        Return to Setup
+    </button>
+
+  </div>
+  <div #printDiv>
+    <div class="summary-main-box" id="report" fxLayout="column">
+      <div fxLayout="column">
+        <div fxLayout="row" fxLayoutGap="30px">
+
+          <div class="information-box" fxFlex="99%">
+            <div fxFlex="32%" class="topSummarybox">
+              <h4>Customer Information</h4>
+              <div fxLayout="row">
+                <span class="topsummaryboxfonts"> ID: </span><span class="padding-left"> {{customerID}}</span>
+              </div>
+              <div fxLayout="row">
+                <span class="topsummaryboxfonts"> Name: </span> <span class="padding-left">{{customerName}}</span>
+              </div>
+            </div>
+            <div fxFlex="32%" class="topSummarybox">
+              <h4>Scenario Information</h4>
+
+              <div fxLayout="row">
+                <span class="topsummaryboxfonts">ID:</span> <span class="padding-left">{{scenarioID}}</span>
+              </div>
+              <div fxLayout="row">
+                <span class="topsummaryboxfonts"> Description: </span> <span
+                  class="padding-left">{{scenarioDescription}}</span>
+              </div>
+              <div fxLayout="row">
+                <span class="topsummaryboxfonts"> Term: </span> <span class="padding-left"> {{scenarioTerm}}</span>
+              </div>
+            </div>
+            <div fxFlex="32%">
+              <h4>Contact Information</h4>
+              <div fxLayout="row">
+                <span class="topsummaryboxfonts"> Primary Contact :</span><span class="padding-left">
+                  {{contactFirstName}}
+                  {{contactLastName}}</span>
+              </div>
+              <div fxLayout="row">
+                <span class="topsummaryboxfonts"> Email:</span><span class="padding-left"> {{contactEmail}}</span>
+              </div>
+              <div fxLayout="row">
+                <span class="topsummaryboxfonts"> Work Number:</span> <span class="padding-left">
+                  {{contactWorkPhone}}</span>
+              </div>
+              <div fxLayout="row">
+                <span class="topsummaryboxfonts"> Mobile Number:</span> <span class="padding-left">
+                  {{contactMobilePhone}}</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Initial Report header -->
+        <div fxLayout="row" fxLayoutGap="10px">
+          <div class="div-hide" fxFlex="30%">
+
+          </div>
+          <div class="separator-border" fxFlex="70%">
+            <div class="price-headings" fxLayout="row" fxLayoutGap="10px">
+              <div fxFlex="13%" fxLayoutAlign="center center">
+
+              </div>
+              <div fxFlex="29%" fxLayoutAlign="center center">
+                <div class="column-heading">Savings with Active Reader Basic</div>
+              </div>
+              <div fxFlex="29%" fxLayoutAlign="center center">
+                <div class="column-heading">Additional Savings with Active Reader Premium</div>
+              </div>
+              <div fxFlex="29%" fxLayoutAlign="center center">
+                <div class="column-heading">Active Reader Cost</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Production Cost Section -->
+        <div>
+          <div fxLayout="row" fxLayoutGap="10px">
+            <div fxFlex="30%">
+              <h5>{{productionCost?.name}} <i class="fa" [ngClass]="{'fa-plus-circle': !productionCost?.status, 
+                  'fa-minus-circle':productionCost?.status}" (click)="getExpandCollapseValue(productionCost)"></i></h5>
+            </div>
+            <div class="separator-border" fxFlex="70%">
+              <div class="cost-row collapse" fxLayout="row" fxLayoutGap="10px" *ngIf="!productionCost?.status"
+                [ngClass]="{'show': !productionCost?.status}">
+                <div fxFlex="13%" fxLayoutAlign="center center">
+
+                </div>
+                <div class="dollar" fxFlex="1%" fxLayoutAlign="center center">
+                  $
+                </div>
+                <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                  {{productionCostARBasicTotal | number:'1.2-2'}}
+                </div>
+                <div class="dollar " fxFlex="1%" fxLayoutAlign="center center">
+
+                </div>
+                <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+                </div>
+                <div class="dollar " fxFlex="1%" fxLayoutAlign="center center">
+
+                </div>
+                <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="prodCostDiv" class="collapse" *ngIf="productionCost?.status"
+            [ngClass]="{'show': productionCost?.status}">
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxFlexOffset="5%" fxFlex="25%">
+                <div class="heading-subsection">Document Production Costs</div>
+              </div>
+              <div class="separator-border" class="separator-border" fxFlex="70%">
+                <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                  <div fxFlex="13%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28" fxLayoutAlign="center center">
+                    {{documentProductionCosts | number:'1.2-2' }}
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxFlexOffset="5%" fxFlex="25%">
+                <div class="heading-subsection">Shipping Costs</div>
+              </div>
+              <div class="separator-border" fxFlex="70%">
+                <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                  <div fxFlex="13%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{shippingCosts | number:'1.2-2'}}
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- Labor Cost Section -->
+        <div>
+          <div fxLayout="row" fxLayoutGap="10px">
+            <div fxFlex="30%">
+              <h5>{{laborCost?.name}} <i class="fa" [ngClass]="{'fa-plus-circle': !laborCost?.status, 
+              'fa-minus-circle':laborCost?.status}" (click)="getExpandCollapseValue(laborCost)"></i></h5>
+            </div>
+            <div class="separator-border collapse" fxFlex="70%">
+              <div class="cost-row" fxLayout="row" fxLayoutGap="10px" *ngIf="!laborCost?.status"
+                [ngClass]="{'show': !laborCost?.status}">
+                <div fxFlex="13%" fxLayoutAlign="center center">
+
+                </div>
+                <div class="dollar " fxFlex="1%" fxLayoutAlign="center center">
+                  $
+                </div>
+                <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                  {{ labourCostARBasicTotal | number:'1.2-2'}}
+                </div>
+                <div class="dollar " fxFlex="1%" fxLayoutAlign="center center">
+                  $
+                </div>
+                <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                  {{ labourCostARPremiumTotal | number:'1.2-2'}}
+                </div>
+                <div class="dollar " fxFlex="1%" fxLayoutAlign="center center">
+
+                </div>
+                <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="LaborCostDiv" class="collapse" *ngIf="laborCost?.status" [ngClass]="{'show': laborCost?.status}">
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxFlexOffset="5%" fxFlex="25%">
+                <div class="heading-subsection">Employee Training Costs</div>
+              </div>
+              <div class="separator-border" fxFlex="70%">
+                <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                  <div fxFlex="13%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{employeeTrainingCosts | number:'1.2-2' }}
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{employeeTrainingCostsAdditionalSavings | number:'1.2-2' }}
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxFlexOffset="5%" fxFlex="25%">
+                <div class="heading-subsection">Document Delivery Management Labor Costs</div>
+              </div>
+              <div class="separator-border" fxFlex="70%">
+                <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                  <div fxFlex="13%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{documentDeliveryManagementLaborCosts | number:'1.2-2'}}
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxFlexOffset="5%" fxFlex="25%">
+                <div class="heading-subsection">Document Conversion Labor Costs</div>
+              </div>
+              <div class="separator-border" fxFlex="70%">
+                <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                  <div fxFlex="13%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{documentConversionLaborCosts  | number:'1.2-2'}}
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxFlexOffset="5%" fxFlex="25%">
+                <div class="heading-subsection">Empoyee Productivity</div>
+              </div>
+              <div class="separator-border" fxFlex="70%">
+                <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                  <div fxFlex="13%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{employeeProductivity | number:'1.2-2'}}
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{employeeProductivityAdditionalSavings | number:'1.2-2'}}
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxFlexOffset="5%" fxFlex="25%">
+                <div class="heading-subsection">Employee Turnover</div>
+              </div>
+              <div class="separator-border" fxFlex="70%">
+                <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                  <div fxFlex="13%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{employeeTurover | number:'1.2-2'}}
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{employeeTuroverAdditionalSavings | number:'1.2-2'}}
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hard Savings Summary -->
+
+        <div fxLayout="row" fxLayoutGap="10px">
+          <div fxFlexOffset="5%" fxFlex="25%">
+            <div class="heading-saving"></div>
+          </div>
+          <div class="separator-border" fxFlex="70%">
+            <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+              <div class="heading-saving padding-left" fxFlex="13%" fxLayoutAlign="center center">
+                Hard Savings
+              </div>
+              <div class="dollar dollar-sign dotted-top-border" fxFlex="1%" fxLayoutAlign="center center">
+                $
+              </div>
+              <div class="dotted-top-border currency" fxFlex="28%" fxLayoutAlign="center center">
+                {{hardSavings | number:'1.2-2'}}
+              </div>
+              <div class="dollar dollar-sign dotted-top-border" fxFlex="1%" fxLayoutAlign="center center">
+                $
+              </div>
+              <div class="dotted-top-border currency" fxFlex="28%" fxLayoutAlign="center center">
+                {{hardSavingsAdditionalSavings | number:'1.2-2'}}
+              </div>
+              <div class="dollar dollar-sign dotted-top-border" fxFlex="1%" fxLayoutAlign="center center">
+
+              </div>
+              <div class="dotted-top-border currency" fxFlex="28%" fxLayoutAlign="center center">
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Risk Management -->
+        <div>
+          <div fxLayout="row" fxLayoutGap="10px">
+            <div fxFlex="30%">
+              <h5>{{riskManagment?.name}} <i class="fa" [ngClass]="{'fa-plus-circle': !riskManagment?.status, 
+              'fa-minus-circle':riskManagment?.status}" (click)="getExpandCollapseValue(riskManagment)"></i></h5>
+            </div>
+            <div class="separator-border collapse" fxFlex="70%">
+              <div class="cost-row" fxLayout="row" fxLayoutGap="10px" *ngIf="!riskManagment?.status"
+                [ngClass]="{'show': !riskManagment?.status}">
+                <div fxFlex="13%" fxLayoutAlign="center center">
+
+                </div>
+                <div class="dollar " fxFlex="1%" fxLayoutAlign="center center">
+                  $
+                </div>
+                <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                  {{riskManagmentARBasicTotal | number:'1.2-2'}}
+                </div>
+                <div class="dollar" fxFlex="1%" fxLayoutAlign="center center">
+                  $
+                </div>
+                <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                  {{riskManagmentARPremiumTotal | number:'1.2-2'}}
+                </div>
+                <div class="dollar " fxFlex="1%" fxLayoutAlign="center center">
+
+                </div>
+                <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="RiskMgmtDiv" class="collapse" *ngIf="riskManagment?.status"
+            [ngClass]="{'show': riskManagment?.status}">
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxFlexOffset="5%" fxFlex="25%">
+                <div class="heading-subsection">Compliance Costs</div>
+              </div>
+              <div class="separator-border" fxFlex="70%">
+                <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                  <div fxFlex="13%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{complianceCost | number:'1.2-2'}}
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{complianceAdditionalSavings | number:'1.2-2'}}
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxFlexOffset="5%" fxFlex="25%">
+                <div class="heading-subsection">Litigation Costs</div>
+              </div>
+              <div class="separator-border" fxFlex="70%">
+                <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                  <div fxFlex="13%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{litigationCost | number:'1.2-2'}}
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{litigationCostAdditionalSavings | number:'1.2-2' }}
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxFlexOffset="5%" fxFlex="25%">
+                <div class="heading-subsection">Compromised IP Costs</div>
+              </div>
+              <div class="separator-border" fxFlex="70%">
+                <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                  <div fxFlex="13%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{compromisedIpCosts | number:'1.2-2'}}
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Revenue Section -->
+        <div>
+          <div fxLayout="row" fxLayoutGap="10px">
+            <div fxFlex="30%">
+              <h5>{{revenue?.name}} <i class="fa" [ngClass]="{'fa-plus-circle': !revenue?.status, 
+              'fa-minus-circle':revenue?.status}" (click)="getExpandCollapseValue(revenue)"></i></h5>
+
+            </div>
+            <div class="separator-border collapse" fxFlex="70%">
+              <div class="cost-row" fxLayout="row" fxLayoutGap="10px" *ngIf="!revenue?.status"
+                [ngClass]="{'show': !revenue?.status}">
+                <div fxFlex="13%" fxLayoutAlign="center center">
+
+                </div>
+                <div class="dollar " fxFlex="1%" fxLayoutAlign="center center">
+                  $
+                </div>
+                <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                  {{revenueARBasicTotal | number:'1.2-2'}}
+                </div>
+                <div class="dollar " fxFlex="1%" fxLayoutAlign="center center">
+                  $
+                </div>
+                <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                  {{revenueARPremiumTotal | number:'1.2-2'}}
+                </div>
+                <div class="dollar " fxFlex="1%" fxLayoutAlign="center center">
+
+                </div>
+                <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="RevenueDiv" class="collapse" *ngIf="revenue?.status" [ngClass]="{'show': revenue?.status}">
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxFlexOffset="5%" fxFlex="25%">
+                <div class="heading-subsection">Increased Revenue Benefits</div>
+              </div>
+              <div class="separator-border" fxFlex="70%">
+                <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                  <div fxFlex="13%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{increasedRevenueBenefits | number:'1.2-2'}}
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{increasedRevenueBenefitsAditionalSavings | number:'1.2-2'}}
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft Savings Summary -->
+
+        <div fxLayout="row" fxLayoutGap="10px">
+          <div fxFlexOffset="5%" fxFlex="25%">
+            <div class="heading-saving"></div>
+          </div>
+          <div class="separator-border" fxFlex="70%">
+            <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+              <div class="heading-saving padding-left" fxFlex="13%" fxLayoutAlign="center center">
+                Soft Savings
+              </div>
+              <div class="dollar dollar-sign dotted-top-border" fxFlex="1%" fxLayoutAlign="center center">
+                $
+              </div>
+              <div class="dotted-top-border currency" fxFlex="28%" fxLayoutAlign="center center">
+                {{softSavings | number:'1.2-2'}}
+              </div>
+              <div class="dollar dollar-sign dotted-top-border" fxFlex="1%" fxLayoutAlign="center center">
+                $
+              </div>
+              <div class="dotted-top-border currency" fxFlex="28%" fxLayoutAlign="center center">
+                {{softSavingsAdditionalSavings | number:'1.2-2'}}
+              </div>
+              <div class="dollar dollar-sign dotted-top-border" fxFlex="1%" fxLayoutAlign="center center">
+
+              </div>
+              <div class="dotted-top-border currency" fxFlex="28%" fxLayoutAlign="center center">
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Savings Summary -->
+
+        <div fxLayout="row" fxLayoutGap="10px">
+          <div fxFlexOffset="5%" fxFlex="25%">
+
+          </div>
+          <div class="separator-border" fxFlex="70%">
+            <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+              <div class="padding-left" fxFlex="13%" fxLayoutAlign="center center">
+                <div class="total-saving">Total Savings</div>
+              </div>
+              <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                $
+              </div>
+              <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                {{totalSavings | number:'1.2-2'}}
+              </div>
+              <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                $
+              </div>
+              <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                {{totalSavingsAdditionalSavings | number:'1.2-2'}}
+              </div>
+              <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+              </div>
+              <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Reader Section -->
+        <div>
+          <div fxLayout="row" fxLayoutGap="10px">
+            <div fxFlex="30%">
+              <h5>{{activeReader?.name}} <i class="fa" [ngClass]="{'fa-plus-circle': !activeReader?.status, 
+              'fa-minus-circle':activeReader?.status}" (click)="getExpandCollapseValue(activeReader)"></i></h5>
+            </div>
+            <div class="separator-border collapse" fxFlex="70%">
+              <div class="cost-row" fxLayout="row" fxLayoutGap="10px" *ngIf="!activeReader?.status"
+                [ngClass]="{'show': !activeReader?.status}">
+                <div fxFlex="13%" fxLayoutAlign="center center">
+
+                </div>
+                <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="28%" fxLayoutAlign="center center">
+
+                </div>
+                <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="28%" fxLayoutAlign="center center">
+
+                </div>
+                <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="28%" fxLayoutAlign="center center">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="ARDiv" class="collapse" *ngIf="activeReader?.status" [ngClass]="{'show': activeReader?.status}">
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxFlexOffset="5%" fxFlex="25%">
+                <div class="heading-subsection">Active Reader Platform Cost</div>
+              </div>
+              <div class="separator-border" fxFlex="70%">
+                <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                  <div fxFlex="13%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{activeReaderPlatformCost | number:'1.2-2'}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxFlexOffset="5%" fxFlex="25%">
+                <div class="heading-subsection">Active Reader Subscription Based Services</div>
+              </div>
+              <div class="separator-border" fxFlex="70%">
+                <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                  <div fxFlex="13%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{activeReaderSubscriptionBasedServices | number:'1.2-2'}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxFlexOffset="5%" fxFlex="25%">
+                <div class="heading-subsection">Active Reader Document Based Services</div>
+              </div>
+              <div class="separator-border" fxFlex="70%">
+                <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                  <div fxFlex="13%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{activeReaderDocumentBasedServices | number:'1.2-2'}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxFlexOffset="5%" fxFlex="25%">
+                <div class="heading-subsection">Active Reader Onboarding</div>
+              </div>
+              <div class="separator-border" fxFlex="70%">
+                <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                  <div fxFlex="13%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{activeReaderOnboarding | number:'1.2-2'}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxFlexOffset="5%" fxFlex="25%">
+                <div class="heading-subsection">Active Reader Integrations</div>
+              </div>
+              <div class="separator-border" fxFlex="70%">
+                <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                  <div fxFlex="13%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{activeReaderIntegrations | number:'1.2-2'}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxFlexOffset="5%" fxFlex="25%">
+                <div class="heading-subsection">Active Reader Internal Support</div>
+              </div>
+              <div class="separator-border" fxFlex="70%">
+                <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                  <div fxFlex="13%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{activeReaderInternalSupport | number:'1.2-2'}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxFlexOffset="5%" fxFlex="25%">
+                <div class="heading-subsection">Active Reader External Support</div>
+              </div>
+              <div class="separator-border" fxFlex="70%">
+                <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                  <div fxFlex="13%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="" fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{activeReaderExternalSupport | number:'1.2-2'}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxFlex="30%">
+                <div class="heading-subsection"><span class="bold-font">Premium</span>Active Reader Subscription –
+                  Advanced Annotations</div>
+              </div>
+              <div class="separator-border" fxFlex="70%">
+                <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                  <div fxFlex="13%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{activeReaderSubscriptionAdvanceAnnotation | number:'1.2-2'}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="10px">
+              <div fxFlex="30%">
+                <div class="heading-subsection"><span class="bold-font">Premium</span>Active Reader Subscription –
+                  Advanced Analytics</div>
+              </div>
+              <div class="separator-border" fxFlex="70%">
+                <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                  <div fxFlex="13%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div fxFlex="28%" fxLayoutAlign="center center">
+
+                  </div>
+                  <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                    $
+                  </div>
+                  <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                    {{activeReaderSubscriptionAdvanceAnalytics | number:'1.2-2'}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="text-align-right">
+          <div fxLayout="row" fxLayoutGap="10px">
+            <div fxFlexOffset="5%" fxFlex="25%">
+              <div class="heading-subsection bold-font AR-lables">Basic </div>
+            </div>
+            <div class="separator-border" fxFlex="70%">
+              <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                <div class="text-left heading-subsection margin-left" fxFlex="13%" fxLayoutAlign="center center">
+                  Active Reader Cost
+                </div>
+                <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                </div>
+                <div class="dotted-top-border " fxFlex="28%" fxLayoutAlign="center center">
+
+                </div>
+                <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                </div>
+                <div class="dotted-top-border " fxFlex="28%" fxLayoutAlign="center center">
+
+                </div>
+                <div class="dollar dollar-sign dotted-top-border" fxFlex="1%" fxLayoutAlign="center center">
+                  $
+                </div>
+                <div class="dotted-top-border currency" fxFlex="28%" fxLayoutAlign="center center">
+                  {{basicARCost | number:'1.2-2'}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutGap="10px">
+            <div fxFlexOffset="5%" fxFlex="25%">
+              <div class="heading-subsection bold-font AR-lables">Premium </div>
+            </div>
+            <div class="separator-border" fxFlex="70%">
+              <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                <div class="text-left heading-subsection margin-left" fxFlex="13%" fxLayoutAlign="center center">
+                  Add On Cost
+                </div>
+                <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="28%" fxLayoutAlign="center center">
+
+                </div>
+                <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="28%" fxLayoutAlign="center center">
+
+                </div>
+                <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+                  $
+                </div>
+                <div class="currency" fxFlex="28%" fxLayoutAlign="center center">
+                  {{premiumARAddOnCost | number:'1.2-2'}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Summary -->
+        <div fxLayout="row" fxLayoutGap="10px">
+          <div fxFlex="30%">
+            <h5>Summary</h5>
+          </div>
+          <div class="separator-border" fxFlex="70%">
+            <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+              <div class="dollar dollar-sign" fxFlex="1%" fxLayoutAlign="center center">
+
+              </div>
+              <div fxFlex="12%" fxLayoutAlign="center center">
+
+              </div>
+              <div fxFlex="29%" fxLayoutAlign="center center">
+
+              </div>
+              <div fxFlex="29%" fxLayoutAlign="center center">
+
+              </div>
+              <div fxFlex="29%" fxLayoutAlign="center center">
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-align-right">
+          <div fxLayout="row" fxLayoutGap="10px">
+            <div fxFlexOffset="5%" fxFlex="25%">
+              <div class="heading-subsection bold-font">Number of Subscribers</div>
+            </div>
+            <div class="separator-border" fxFlex="70%">
+              <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                <div class="dollar dollar-sign padding-left" fxFlex="1%" fxLayoutAlign="center center">
+
+                </div>
+                <div class="summaryCost" fxFlex="24%" fxLayoutAlign="center center">
+                  {{numberOfSubscribers | number}}
+                </div>
+                <div class="currency" fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutGap="10px">
+            <div fxFlexOffset="5%" fxFlex="25%">
+              <div class="heading-subsection bold-font">Annual Basic Subsciption Cost</div>
+            </div>
+            <div class="separator-border" fxFlex="70%">
+              <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                <div class="dollar dollar-sign padding-left" fxFlex="1%" fxLayoutAlign="center center">
+                  $
+                </div>
+                <div class="summaryCost" fxFlex="24%" fxLayoutAlign="center center">
+                  {{annaulBasicSubscriptionCost | number:'1.2-2'}}
+                </div>
+                <div class="currency" fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutGap="10px">
+            <div fxFlexOffset="5%" fxFlex="25%">
+              <div class="heading-subsection bold-font">Annual Premium Add On Cost</div>
+            </div>
+            <div class="separator-border" fxFlex="70%">
+              <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                <div class="dollar dollar-sign padding-left" fxFlex="1%" fxLayoutAlign="center center">
+                  $
+                </div>
+                <div class="summaryCost" fxFlex="24%" fxLayoutAlign="center center">
+                  {{annualPremiumAddOnCost | number:'1.2-2'}}
+                </div>
+                <div class="currency" fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutGap="10px">
+            <div fxFlexOffset="5%" fxFlex="25%">
+              <div class="heading-subsection bold-font">Total Annual Savings</div>
+            </div>
+            <div class="separator-border" fxFlex="70%">
+              <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                <div class="dollar dollar-sign padding-left" fxFlex="1%" fxLayoutAlign="center center">
+                  $
+                </div>
+                <div class="summaryCost" fxFlex="24%" fxLayoutAlign="center center">
+                  {{totalAnnualSavings | number:'1.2-2'}}
+                </div>
+                <div class="currency" fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutGap="10px">
+            <div fxFlexOffset="5%" fxFlex="25%">
+              <div class="heading-subsection bold-font">Annual Savings Per Subscriber</div>
+            </div>
+            <div class="separator-border" fxFlex="70%">
+              <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                <div class="dollar dollar-sign padding-left" fxFlex="1%" fxLayoutAlign="center center">
+                  $
+                </div>
+                <div class="summaryCost" fxFlex="24%" fxLayoutAlign="center center">
+                  {{annualSavingsPerSubscriber | number:'1.2-2'}}
+                </div>
+                <div class="currency" fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutGap="10px">
+            <div fxFlexOffset="5%" fxFlex="25%">
+              <div class="heading-subsection bold-font">Total AR Costs</div>
+            </div>
+            <div class="separator-border" fxFlex="70%">
+              <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                <div class="dollar dollar-sign padding-left" fxFlex="1%" fxLayoutAlign="center center">
+                  $
+                </div>
+                <div class="summaryCost" fxFlex="24%" fxLayoutAlign="center center">
+                  {{totalArCosts | number:'1.2-2'}}
+                </div>
+                <div class="currency" fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutGap="10px">
+            <div fxFlexOffset="5%" fxFlex="25%">
+              <div class="heading-subsection bold-font">Initial Cost</div>
+            </div>
+            <div class="separator-border" fxFlex="70%">
+              <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                <div class="dollar dollar-sign padding-left" fxFlex="1%" fxLayoutAlign="center center">
+                  $
+                </div>
+                <div class="summaryCost" fxFlex="24%" fxLayoutAlign="center center">
+                  {{initialCost | number:'1.2-2'}}
+                </div>
+                <div class="currency" fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutGap="10px">
+            <div fxFlexOffset="5%" fxFlex="25%">
+              <div class="heading-subsection bold-font">Annual Cost</div>
+            </div>
+            <div class="separator-border" fxFlex="70%">
+              <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                <div class="dollar dollar-sign padding-left" fxFlex="1%" fxLayoutAlign="center center">
+                  $
+                </div>
+                <div class="summaryCost" fxFlex="24%" fxLayoutAlign="center center">
+                  {{annualCost | number:'1.2-2'}}
+                </div>
+                <div class="currency" fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutGap="10px">
+            <div fxFlexOffset="5%" fxFlex="25%">
+              <div class="heading-subsection bold-font">Annual Cost Per Subscriber</div>
+            </div>
+            <div class="separator-border" fxFlex="70%">
+              <div class="cost-row" fxLayout="row" fxLayoutGap="10px">
+                <div class="dollar dollar-sign padding-left" fxFlex="1%" fxLayoutAlign="center center">
+                  $
+                </div>
+                <div class="summaryCost" fxFlex="24%" fxLayoutAlign="center center">
+                  {{annualCostPerSubscriber | number:'1.2-2'}}
+                </div>
+                <div class="currency" fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+                <div fxFlex="25%" fxLayoutAlign="center center">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="disclaimer">
+          This estimate is for evaluation purposes only and is not a guarantee of cost for services. Estimation is based
+          on
+          current information from client about the project requirements. Actual cost may change once project elements
+          are
+          finalized or negotiated. Client will be notified of any changes in cost prior to them being incurred.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

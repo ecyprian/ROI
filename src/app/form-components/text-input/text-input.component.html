@@ -1,0 +1,14 @@
+<div *ngIf="isVisible" fxLayout="row" fxLayoutGap="20px" fxFlexAlign="center center" class="input-div">
+  <div fxFlex="70%" class="label">
+    <label>{{input.question}}</label>
+  </div>
+  <div fxFlex="30%" class="input">
+    <span *ngIf="hasPrefix" matPrefix>{{prefixText}} &nbsp;</span>
+    <input class="text-input-calculation"
+      [ngClass]="{'prefix-class': hasPrefix , 'suffix-class':hasSuffixfix,'noInputFormat-class' : noInputFormat }"
+      appInputSelectAllText [(ngModel)]="inputValue" matInput (keyup)="onKeyUp($event)" (focus)="focusFunction()"
+      (focusout)="focusOutFunction()" #inpValues>
+    <span *ngIf="hasSuffixfix" matSuffix> &nbsp; {{preSuffixText}}</span>
+  </div>
+
+</div>

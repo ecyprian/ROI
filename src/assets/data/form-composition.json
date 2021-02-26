@@ -1,0 +1,1702 @@
+{
+  "inputGroups": [
+    {
+      "id": "1",
+      "name": "Active Reader",
+      "description": "Active Reader",
+      "inputs": [
+        {
+          "inputId": "1",
+          "categoryId": "1",
+          "question": "How much is the annual platform cost for Active Reader?",
+          "inputType": "text",
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal-$"
+        },
+        {
+          "inputId": "2",
+          "categoryId": "2",
+          "question": "How many Active Reader subscribers do you have?",
+          "inputType": "text",
+          "defaultValue": null,
+          "inputFormat": "numeric"
+        },
+        {
+          "inputId": "3",
+          "categoryId": "2",
+          "question": "What is the Active Reader annual subscription fee for Basic Services?",
+          "inputType": "text",
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal-$"
+        },
+        {
+          "inputId": "4",
+          "categoryId": "3",
+          "question": "Do you subscribe to Advanced Annotations (i.e., photo, video)?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null
+        },
+        {
+          "inputId": "5",
+          "categoryId": "3",
+          "question": "What is the Active Reader annual subscription fee for Advanced Annotations?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric",
+          "criteria": [
+            {
+              "inputId": "4",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "6",
+          "categoryId": "4",
+          "question": "Do you subscribe to Advanced Analytics?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null
+        },
+        {
+          "inputId": "7",
+          "categoryId": "4",
+          "question": "What is the Active Reader annual subscription fee for Advanced Analytics?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal-$",
+          "criteria": [
+            {
+              "inputId": "6",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "8",
+          "categoryId": "5",
+          "question": "Are you choosing a per-document subscription plan?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null
+        },
+        {
+          "inputId": "9",
+          "categoryId": "5",
+          "question": "How many documents do you intend to provide each subscriber annually?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal",
+          "criteria": [
+            {
+              "inputId": "8",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "10",
+          "categoryId": "5",
+          "question": "What is your per-document fee for Active Reader?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal-$",
+          "criteria": [
+            {
+              "inputId": "8",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "11",
+          "categoryId": "6",
+          "question": "What is the Active Reader onboarding cost?",
+          "inputType": "text",
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal-$"
+        },
+        {
+          "inputId": "12",
+          "categoryId": "7",
+          "question": "Are you choosing to engage ViaTech to integrate Active Reader Basic Services?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null
+        },
+        {
+          "inputId": "13",
+          "categoryId": "7",
+          "question": "What is the cost of the Active Reader Basic Services integration?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal-$",
+          "criteria": [
+            {
+              "inputId": "12",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "14",
+          "categoryId": "7",
+          "question": "Are you choosing to engage ViaTech to integrate Advanced Analytics?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "inputId": "6",
+              "value": "Yes"
+            },
+            {
+              "inputId": "6",
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null
+        },
+        {
+          "inputId": "15",
+          "categoryId": "7",
+          "question": "What is the cost of the Active Reader Advanced Analytics integration?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal-$",
+          "criteria": [
+            {
+              "inputId": "14",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "16",
+          "categoryId": "8",
+          "question": "How many annual internal hours are required to support Active Reader?",
+          "inputType": "text",
+          "defaultValue": null,
+          "inputFormat": "numeric"
+        },
+        {
+          "inputId": "17",
+          "categoryId": "8",
+          "question": "What is the average cost of your internal hour?",
+          "inputType": "text",
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal-$"
+        },
+        {
+          "inputId": "18",
+          "categoryId": "9",
+          "question": "How many annual ViaTech hours are required to support Active Reader?",
+          "inputType": "text",
+          "defaultValue": null,
+          "inputFormat": "numeric"
+        },
+        {
+          "inputId": "19",
+          "categoryId": "9",
+          "question": "What is ViaTech's hourly rate?",
+          "inputType": "text",
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal-$"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Production Costs",
+      "description": "Production Costs Estimation",
+      "inputs": [
+        {
+          "inputId": "20",
+          "categoryId": "10",
+          "question": "Do you want to calculate document production savings?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null
+        },
+        {
+          "inputId": "21",
+          "categoryId": "10",
+          "question": "What is your average cost to produce an entire document?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal-$",
+          "criteria": [
+            {
+              "inputId": "20",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "22",
+          "categoryId": "10",
+          "question": "How many entire documents do you produce per year?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal",
+          "criteria": [
+            {
+              "inputId": "20",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "23",
+          "categoryId": "10",
+          "question": "Do you update the document?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null,
+          "criteria": [
+            {
+              "inputId": "20",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "24",
+          "categoryId": "10",
+          "question": "What is your average cost to produce an updated section of a document?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal-$",
+          "criteria": [
+            {
+              "inputId": "20",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "23",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "25",
+          "categoryId": "10",
+          "question": "How many updates do you make to each document per year?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal",
+          "criteria": [
+            {
+              "inputId": "20",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "23",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "26",
+          "categoryId": "11",
+          "question": "Do you want to calculate shipping cost saving?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null
+        },
+        {
+          "inputId": "28",
+          "categoryId": "11",
+          "question": "Do you ship entire documents individually or in bulk?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Individual"
+            },
+            {
+              "value": "Bulk"
+            }
+          ],
+          "defaultValue": "Individual",
+          "inputFormat": null,
+          "criteria": [
+            {
+              "inputId": "26",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "29",
+          "categoryId": "11",
+          "question": "If bulk, how many documents per bulk shipment?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": "1",
+          "inputFormat": "numeric-decimal",
+          "criteria": [
+            {
+              "inputId": "26",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "28",
+              "inputValue": "Bulk"
+            }
+          ]
+        },
+        {
+          "inputId": "27",
+          "categoryId": "11",
+          "question": "How many entire documents do you ship per year?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal",
+          "criteria": [
+            {
+              "inputId": "26",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "30",
+          "categoryId": "11",
+          "question": "What are your estimated shipping costs per document?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal-$",
+          "criteria": [
+            {
+              "inputId": "26",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "86",
+          "categoryId": "22",
+          "question": "Do you want to calculate revision shipping cost savings by adopting Active Reader?”",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null
+        },
+        {
+          "inputId": "32",
+          "categoryId": "22",
+          "question": "Do you ship document revisions individually or in bulk?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Individual"
+            },
+            {
+              "value": "Bulk"
+            }
+          ],
+          "defaultValue": "Individual",
+          "inputFormat": null,
+          "criteria": [
+            {
+              "inputId": "86",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "33",
+          "categoryId": "22",
+          "question": "If bulk, how many document revisions per bulk shipment?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": "1",
+          "inputFormat": "numeric-decimal",
+          "criteria": [
+            {
+              "inputId": "86",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "32",
+              "inputValue": "Bulk"
+            }
+          ]
+        },
+        {
+          "inputId": "31",
+          "categoryId": "22",
+          "question": "How many document revisions do you ship per year?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal",
+          "criteria": [
+            {
+              "inputId": "86",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "34",
+          "categoryId": "22",
+          "question": "What are your estimated shipping costs per document revision?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal-$",
+          "criteria": [
+            {
+              "inputId": "86",
+              "inputValue": "Yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "categoryId": "12",
+      "name": "Labor Costs",
+      "description": "Labor Costs Estimation",
+      "inputs": [
+        {
+          "inputId": "35",
+          "categoryId": "12",
+          "question": "Do you want to calculate internal employee training savings? ",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null
+        },
+        {
+          "inputId": "36",
+          "categoryId": "12",
+          "question": "Are you training internal staff?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null,
+          "criteria": [
+            {
+              "inputId": "35",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "37",
+          "categoryId": "12",
+          "question": "How many staff are trained each year?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric",
+          "criteria": [
+            {
+              "inputId": "35",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "36",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "38",
+          "categoryId": "12",
+          "question": "How many hours on average do you train each staff person per year?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": "24",
+          "inputFormat": "numeric-decimal",
+          "criteria": [
+            {
+              "inputId": "35",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "36",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "39",
+          "categoryId": "12",
+          "question": "What is the average fully-loaded hourly cost of your staff person?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": "40",
+          "inputFormat": "numeric-decimal-$",
+          "criteria": [
+            {
+              "inputId": "35",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "36",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "40",
+          "categoryId": "12",
+          "question": "What percentage of training hours do you expect to reduce by using Active Reader?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": "30.0",
+          "inputFormat": "percentage",
+          "criteria": [
+            {
+              "inputId": "35",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "36",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "41",
+          "categoryId": "13",
+          "question": "Do you want to calculate document delivery management savings?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null
+        },
+        {
+          "inputId": "42",
+          "categoryId": "13",
+          "question": "Do you have dedicated staff that oversees document distribution?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null,
+          "criteria": [
+            {
+              "inputId": "41",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "43",
+          "categoryId": "13",
+          "question": "How many hours on average do you spend each year on document distribution?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": "if('[41]' == 'Yes'){ var b = 0 }else{ b = 0 } if('[42]' == 'Yes'){var a = 1560 } else { a = 0 } a",
+          "inputFormat": "numeric",
+          "criteria": [
+            {
+              "inputId": "41",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "42",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "44",
+          "categoryId": "13",
+          "question": "What is the average fully-loaded hourly cost of your document distribution staff?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": "if('[41]' == 'Yes'){ var b = 0 }else{ b = 0 } if('[42]' == 'Yes'){var a = 40.3 } else { a = 0 } a",
+          "inputFormat": "numeric-decimal-$",
+          "criteria": [
+            {
+              "inputId": "41",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "42",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "45",
+          "categoryId": "13",
+          "question": "What percentage of document distribution hours do you expect to reduce by using Active Reader?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": "if('[41]' == 'Yes'){ var b = 0 }else{ b = 0 } if('[42]' == 'Yes'){var a = 10.1 } else { a = 0 } a",
+          "inputFormat": "percentage",
+          "criteria": [
+            {
+              "inputId": "41",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "42",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "46",
+          "categoryId": "14",
+          "question": "Do you want to calculate document conversion savings?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null
+        },
+        {
+          "inputId": "47",
+          "categoryId": "14",
+          "question": "Do you currently electronically distribute documents? ",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null,
+          "criteria": [
+            {
+              "inputId": "46",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "48",
+          "categoryId": "14",
+          "question": "Are you required to convert the documents to another file type other than PDF? ",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null,
+          "criteria": [
+            {
+              "inputId": "46",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "47",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "49",
+          "categoryId": "14",
+          "question": "How many unique documents are in your current library?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric",
+          "criteria": [
+            {
+              "inputId": "46",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "47",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "48",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "50",
+          "categoryId": "14",
+          "question": "How many revisions do you make to the unique documents each year on average?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal",
+          "criteria": [
+            {
+              "inputId": "46",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "47",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "48",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "51",
+          "categoryId": "14",
+          "question": "How many hours does it take you for each document conversion?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal",
+          "criteria": [
+            {
+              "inputId": "46",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "47",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "48",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "52",
+          "categoryId": "14",
+          "question": "What is the average fully-loaded hourly cost of converting each document?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal-$",
+          "criteria": [
+            {
+              "inputId": "46",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "47",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "48",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "53",
+          "categoryId": "14",
+          "question": "Do you plan on using a blended print and electronic distribution model?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null,
+          "criteria": [
+            {
+              "inputId": "46",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "47",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "54",
+          "categoryId": "14",
+          "question": "What is the cost to maintain duplicate digital assets?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal-$",
+          "criteria": [
+            {
+              "inputId": "46",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "47",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "53",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "55",
+          "categoryId": "15",
+          "question": "Do you want to calculate employee productivity savings?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null
+        },
+        {
+          "inputId": "56",
+          "categoryId": "15",
+          "question": "Do you expect Active Reader to increase productivity of your workforce?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null,
+          "criteria": [
+            {
+              "inputId": "55",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "57",
+          "categoryId": "15",
+          "question": "How many Active Reader subscribers do you have?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric",
+          "criteria": [
+            {
+              "inputId": "55",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "56",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "58",
+          "categoryId": "15",
+          "question": "What is the average fully-loaded hourly cost of your staff person?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal-$",
+          "criteria": [
+            {
+              "inputId": "55",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "56",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "59",
+          "categoryId": "15",
+          "question": "What percent increase of labor productivity are you expecting with Active Reader?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "percentage",
+          "criteria": [
+            {
+              "inputId": "55",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "56",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "60",
+          "categoryId": "16",
+          "question": "Do you want to calculate potential employee turnover savings?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null
+        },
+        {
+          "inputId": "61",
+          "categoryId": "16",
+          "question": "How many Active Reader subscribers do you have?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "numeric",
+          "criteria": [
+            {
+              "inputId": "60",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "62",
+          "categoryId": "16",
+          "question": "What percentage improvement do you expect in your employee turnover rate by adopting Active Reader?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": null,
+          "inputFormat": "percentage",
+          "criteria": [
+            {
+              "inputId": "60",
+              "inputValue": "Yes"
+            }
+          ]
+        },
+        {
+          "inputId": "63",
+          "categoryId": "16",
+          "question": "What is your cost to replace an employee?",
+          "inputType": "text",
+          "inputOptions": null,
+          "defaultValue": "5864",
+          "inputFormat": "numeric-decimal-$",
+          "criteria": [
+            {
+              "inputId": "60",
+              "inputValue": "Yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Risk Management",
+      "description": "Risk Management Estimation",
+      "inputs": [
+        {
+          "inputId": "64",
+          "categoryId": "17",
+          "question": "Do you want to calculate compliance savings?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null
+        },
+        {
+          "inputId": "65",
+          "categoryId": "17",
+          "question": "Do you have compliance requirements as an organization?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "criteria": [
+            {
+              "inputId": "64",
+              "inputValue": "Yes"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null
+        },
+        {
+          "inputId": "66",
+          "categoryId": "17",
+          "question": "What are the costs per incident for non-compliance?",
+          "inputType": "text",
+          "criteria": [
+            {
+              "inputId": "64",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "65",
+              "inputValue": "Yes"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal-$"
+        },
+        {
+          "inputId": "67",
+          "categoryId": "17",
+          "question": "How many incidents do you expect to eliminate by adopting Active Reader?",
+          "inputType": "text",
+          "criteria": [
+            {
+              "inputId": "64",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "65",
+              "inputValue": "Yes"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": "numeric"
+        },
+        {
+          "inputId": "68",
+          "categoryId": "21",
+          "question": "Do you have lawsuits relating to non-compliance?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null
+        },
+        {
+          "inputId": "70",
+          "categoryId": "21",
+          "question": "What is the average cost to defend a lawsuit?",
+          "inputType": "text",
+          "criteria": [
+            {
+              "inputId": "68",
+              "inputValue": "Yes"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal-$"
+        },
+        {
+          "inputId": "71",
+          "categoryId": "21",
+          "question": "How many lawsuits do you expect to eliminate by adopting Active Reader?",
+          "inputType": "text",
+          "criteria": [
+            {
+              "inputId": "68",
+              "inputValue": "Yes"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": "numeric"
+        },
+        {
+          "inputId": "72",
+          "categoryId": "18",
+          "question": "Do you want to calculate the cost of losing Intellectual Property (IP)?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null
+        },
+        {
+          "inputId": "73",
+          "categoryId": "18",
+          "question": "How many IP-loss incidents involving terminated employees do you expect to prevent per year?",
+          "inputType": "text",
+          "criteria": [
+            {
+              "inputId": "72",
+              "inputValue": "Yes"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal"
+        },
+        {
+          "inputId": "74",
+          "categoryId": "18",
+          "question": " What is the average cost of an IP-loss incident involving terminated employees?",
+          "inputType": "text",
+          "criteria": [
+            {
+              "inputId": "72",
+              "inputValue": "Yes"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal-$"
+        },
+        {
+          "inputId": "75",
+          "categoryId": "18",
+          "question": "How many IP-loss incidents involving active employees do you expect to prevent per year?",
+          "inputType": "text",
+          "criteria": [
+            {
+              "inputId": "72",
+              "inputValue": "Yes"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal"
+        },
+        {
+          "inputId": "76",
+          "categoryId": "18",
+          "question": "What is the average cost of an IP-loss incident involving active employees?",
+          "inputType": "text",
+          "criteria": [
+            {
+              "inputId": "72",
+              "inputValue": "Yes"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal-$"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Revenue",
+      "description": "Revenue Estimation",
+      "inputs": [
+        {
+          "inputId": "85",
+          "categoryId": "19",
+          "question": "Do you want to calculate the potential increased sales?",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null
+        },
+        {
+          "inputId": "78",
+          "categoryId": "19",
+          "question": "How many of your subscribers are external customers?",
+          "inputType": "text",
+          "criteria": [
+            {
+              "inputId": "85",
+              "inputValue": "Yes"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": "numeric"
+        },
+        {
+          "inputId": "79",
+          "categoryId": "19",
+          "question": "How many incremental paid documents do you expect per external customer?",
+          "inputType": "text",
+          "criteria": [
+            {
+              "inputId": "85",
+              "inputValue": "Yes"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": "numeric"
+        },
+        {
+          "inputId": "80",
+          "categoryId": "19",
+          "question": "What is the average sales price per incremental document?",
+          "inputType": "text",
+          "criteria": [
+            {
+              "inputId": "85",
+              "inputValue": "Yes"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": "numeric"
+        },
+        {
+          "inputId": "81",
+          "categoryId": "19",
+          "question": "Do you economically benefit from improved net promoter scores (or star ratings)?",
+          "inputType": "radio",
+          "criteria": [
+            {
+              "inputId": "85",
+              "inputValue": "Yes"
+            }
+          ],
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null
+        },
+        {
+          "inputId": "82",
+          "categoryId": "19",
+          "question": "How much do you expect to benefit economically each year with the improved scores?",
+          "inputType": "text",
+          "criteria": [
+            {
+              "inputId": "85",
+              "inputValue": "Yes"
+            },
+            {
+              "inputId": "81",
+              "inputValue": "Yes"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": "numeric-decimal-$"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Analytics",
+      "description": "Analytics Estimation",
+      "inputs": [
+        {
+          "inputId": "83",
+          "categoryId": "20",
+          "question": "Do you want to calculate the incremental impact? ",
+          "inputType": "radio",
+          "inputOptions": [
+            {
+              "value": "Yes"
+            },
+            {
+              "value": "No"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": null
+        },
+        {
+          "inputId": "84",
+          "categoryId": "20",
+          "question": "What favorable percentage impact do you expect from using Advanced Analytics? (You can refine in the results section.)",
+          "inputType": "text",
+          "criteria": [
+            {
+              "inputId": "83",
+              "inputValue": "Yes"
+            }
+          ],
+          "defaultValue": null,
+          "inputFormat": "percentage"
+        }
+      ]
+    }
+  ],
+  "outputGroups": [
+    {
+      "id": "7",
+      "name": "Review",
+      "description": "Review",
+      "categories": [
+        {
+          "id": "1",
+          "groupId": "1",
+          "name": "Active Reader Platform Cost",
+          "sequence": "1",
+          "costtype": "HardCosts",
+          "analyticsImpact": "No",
+          "calculation": "[1]",
+          "frequency": "Annual Recurring",
+          "outputFormat": "numeric-decimal-$"
+        },
+        {
+          "id": "2",
+          "groupId": "1",
+          "name": "Active Reader Subscription – Basic Services",
+          "sequence": "2",
+          "costtype": "HardCosts",
+          "analyticsImpact": "No",
+          "calculation": "[2] * [3]",
+          "frequency": "Annual Recurring",
+          "outputFormat": "numeric-decimal-$"
+        },
+        {
+          "id": "3",
+          "groupId": "1",
+          "name": "Active Reader Subscription – Advanced Annotations",
+          "sequence": "3",
+          "costtype": "HardCosts",
+          "analyticsImpact": "No",
+          "calculation": "if('[4]' =='Yes'){ [2] * [5] } else { 0 }",
+          "frequency": "Annual Recurring",
+          "outputFormat": "numeric-decimal-$"
+        },
+        {
+          "id": "4",
+          "groupId": "1",
+          "name": "Active Reader Subscription – Advanced Analytics",
+          "sequence": "4",
+          "costtype": "HardCosts",
+          "analyticsImpact": "No",
+          "calculation": "if('[6]' =='Yes'){ [2] * [7] } else { 0 }",
+          "frequency": "Annual Recurring",
+          "outputFormat": "numeric-decimal-$"
+        },
+        {
+          "id": "5",
+          "groupId": "1",
+          "name": "Active Reader Document",
+          "sequence": "5",
+          "costtype": "HardCosts",
+          "analyticsImpact": "No",
+          "calculation": "if('[8]' =='Yes'){ [9] * [10] } else { 0 }",
+          "frequency": "Annual Recurring",
+          "outputFormat": "numeric-decimal-$"
+        },
+        {
+          "id": "6",
+          "groupId": "1",
+          "name": "Active Reader Onboarding",
+          "sequence": "6",
+          "costtype": "HardCosts",
+          "analyticsImpact": "No",
+          "calculation": "[11]",
+          "frequency": "Year1Only",
+          "outputFormat": "numeric-decimal-$"
+        },
+        {
+          "id": "7",
+          "groupId": "1",
+          "name": "Active Reader Integrations",
+          "sequence": "7",
+          "costtype": "HardCosts",
+          "analyticsImpact": "No",
+          "calculation": "if('[14]' == 'Yes'){ var c = [15] }else{ c = 0 } if('[6]' == 'Yes'){var b = c }else{ b = 0 } if('[12]' == 'Yes'){var a = [13] + b  } else { a = 0 + b} a",
+          "frequency": "Year1Only",
+          "outputFormat": "numeric-decimal-$"
+        },
+        {
+          "id": "8",
+          "groupId": "1",
+          "name": "Active Reader Internal Support",
+          "sequence": "8",
+          "costtype": "HardCosts",
+          "analyticsImpact": "No",
+          "calculation": "[16]*[17]",
+          "frequency": "Annual Recurring",
+          "outputFormat": "numeric-decimal-$"
+        },
+        {
+          "id": "9",
+          "groupId": "1",
+          "name": "Active Reader External Support",
+          "sequence": "9",
+          "costtype": "HardCosts",
+          "analyticsImpact": "No",
+          "calculation": "[18]*[19]",
+          "frequency": "Annual Recurring",
+          "outputFormat": "numeric-decimal-$"
+        },
+        {
+          "id": "10",
+          "groupId": "2",
+          "name": "Document Production",
+          "sequence": "10",
+          "costtype": "HardCosts",
+          "analyticsImpact": "No",
+          "calculation": "if('[23]' == 'Yes'){ var b = [24] * [25] *[22] }else{ b = 0 } if('[20]' == 'Yes'){var a = ([21]*[22]) + b } else { a = 0 } a",
+          "frequency": "Annual Recurring",
+          "outputFormat": "numeric-decimal-$"
+        },
+        {
+          "id": "11",
+          "groupId": "2",
+          "name": "Initial Shipping Costs",
+          "sequence": "11",
+          "costtype": "HardCosts",
+          "analyticsImpact": "No",
+          "calculation": "if('[28]' == 'Individual'){var b = [27] }else{ b = [27]/[29] } if('[26]' == 'Yes'){var a = b * [30] }else{ a = 0 } a",
+          "frequency": "Annual Recurring",
+          "outputFormat": "numeric-decimal-$"
+        },
+        {
+          "id": "22",
+          "groupId": "2",
+          "name": "Revision Shipping Costs",
+          "sequence": "22",
+          "costtype": "HardCosts",
+          "analyticsImpact": "No",
+          "calculation": "if('[32]' == 'Individual'){var b = [31] }else{ b = [31]/[33] } if('[86]' == 'Yes'){var a = b * [34] }else{ a = 0 } a",
+          "frequency": "Annual Recurring",
+          "outputFormat": "numeric-decimal-$"
+        },
+        {
+          "id": "12",
+          "groupId": "3",
+          "name": "Employee Training Costs",
+          "sequence": "12",
+          "costtype": "HardCosts",
+          "analyticsImpact": "Yes",
+          "calculation": "if('[36]' == 'Yes'){ var b = [37]*[38]*[39]*[40]*.01 }else{ b = 0 } if('[35]' == 'Yes'){var a = b } else { a = 0 } a",
+          "frequency": "Annual Recurring",
+          "outputFormat": "numeric-decimal-$"
+        },
+        {
+          "id": "13",
+          "groupId": "3",
+          "name": "Document Delivery Management Labor Costs",
+          "sequence": "13",
+          "costtype": "HardCosts",
+          "analyticsImpact": "No",
+          "calculation": "if('[42]' == 'Yes'){ var b = [43]*[44]*[45]*.01 }else{ b = 0 } if('[41]' == 'Yes'){var a = b } else { a = 0 } a",
+          "frequency": "Annual Recurring",
+          "outputFormat": "numeric-decimal-$"
+        },
+        {
+          "id": "14",
+          "groupId": "3",
+          "name": "Document Conversion Labor Costs",
+          "sequence": "14",
+          "costtype": "HardCosts",
+          "analyticsImpact": "No",
+          "calculation": "if('[53]' == 'Yes'){ var d = [54] }else{ d = 0 } if('[48]' == 'Yes'){ var c = ([49]*[50]*[51]*[52]) + d }else{ c = 0 } if('[47]' == 'Yes'){var b = c }else{ b = 0 } if('[46]' == 'Yes'){var a = b }else{ a = 0} a",
+          "frequency": "Annual Recurring",
+          "outputFormat": "numeric-decimal-$"
+        },
+        {
+          "id": "15",
+          "groupId": "3",
+          "name": "Employee Productivity",
+          "sequence": "15",
+          "costtype": "SoftCosts",
+          "analyticsImpact": "Yes",
+          "calculation": "if('[56]' == 'Yes'){ var b = [57]*[58]*[59]*.01 }else{ b = 0 } if('[55]' == 'Yes'){var a = b } else { a = 0 } a",
+          "frequency": "Annual Recurring",
+          "outputFormat": "numeric-decimal-$"
+        },
+        {
+          "id": "16",
+          "groupId": "3",
+          "name": "Employee Turnover",
+          "sequence": "16",
+          "costtype": "SoftCosts",
+          "analyticsImpact": "Yes",
+          "calculation": "if('[60]' == 'Yes'){var a = [61]*[62]*[63]*.01 } else { a = 0 } a",
+          "frequency": "Annual Recurring",
+          "outputFormat": "numeric-decimal-$"
+        },
+        {
+          "id": "17",
+          "groupId": "4",
+          "name": "Compliance Costs",
+          "sequence": "17",
+          "costtype": "SoftCosts",
+          "analyticsImpact": "Yes",
+          "calculation": "if('[65]' == 'Yes'){var b = [66]*[67] }else{ b = 0 } if('[64]' == 'Yes'){var a = b }else{ a = 0 } a",
+          "frequency": "Annual Recurring",
+          "outputFormat": "numeric-decimal-$"
+        },
+        {
+          "id": "21",
+          "groupId": "4",
+          "name": "Litigation Costs",
+          "sequence": "18",
+          "costtype": "SoftCosts",
+          "analyticsImpact": "Yes",
+          "calculation": "if('[68]' == 'Yes'){ var c = [70]*[71] }else{ c = 0 } c",
+          "frequency": "Annual Recurring",
+          "outputFormat": "numeric-decimal-$"
+        },
+        {
+          "id": "18",
+          "groupId": "4",
+          "name": "Compromised IP Costs",
+          "sequence": "19",
+          "costtype": "SoftCosts",
+          "analyticsImpact": "No",
+          "calculation": "if('[72]' == 'Yes'){var a = ([73]*[74]) + ([75]*[76]) } else { a = 0 } a",
+          "frequency": "Annual Recurring",
+          "outputFormat": "numeric-decimal-$"
+        },
+        {
+          "id": "19",
+          "groupId": "5",
+          "name": "Increased Revenue Benefits",
+          "sequence": "20",
+          "costtype": "SoftCosts",
+          "analyticsImpact": "Yes",
+          "calculation": "if('[81]' == 'Yes'){ var b = [82] }else{ b = 0 } if('[85]' == 'Yes'){var a = ([78]*[79]*[80]) + b } else { a = 0 } a",
+          "frequency": "Annual Recurring",
+          "outputFormat": "numeric-decimal-$"
+        },
+        {
+          "id": "20",
+          "groupId": "6",
+          "name": "Analytic Advantages",
+          "sequence": "21",
+          "costtype": "SoftCosts",
+          "analyticsImpact": "No",
+          "calculation": "if('[83]' == 'Yes'){var a = [84] } else { a = 0 } a",
+          "frequency": "Annual Recurring",
+          "outputFormat": "percent"
+        }
+      ]
+    }
+  ]
+}

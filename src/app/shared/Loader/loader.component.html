@@ -1,0 +1,13 @@
+<div class="custom-loader" [class.loader-hidden]="!show">
+    <div class="loader-overlay">
+        <div>
+            <!-- <mat-progress-bar mode="indeterminate" *ngIf="show"></mat-progress-bar> -->
+             <mat-progress-spinner class="progress-loader" mode="indeterminate" *ngIf="show" style="margin:0 auto;" color="primary"> </mat-progress-spinner>
+           <!-- <mat-progress-spinner mode="indeterminate" id="tempJqueryLoader" style="margin:0 auto;display:none;" color="primary"> </mat-progress-spinner> -->
+            <!--
+            <md-spinner *ngIf="show" class="example-margin" [color]="warn" [mode]="indeterminate">
+            </md-spinner>
+            -->
+        </div>
+    </div>
+</div>

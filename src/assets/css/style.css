@@ -1,0 +1,425 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.mat-horizontal-content-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-y: auto !important;
+}
+
+.output-div {
+  margin: 5px 15px;
+}
+
+.label {
+  padding: 12px 20px;
+  margin: 8px 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.input {
+  padding: 2px 4px;
+  border: 1px solid #ccc;
+  margin: 8px 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.text-input {
+  height: 100%;
+  font-size: 14px;
+  width: 100% !important;
+  padding-left: 4px;
+}
+
+input {
+  border: none;
+}
+
+/* print summary style */
+
+.cost-row {
+  /* height:100%; */
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.information-box {
+  margin: 0px 0px 20px 0px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #cccccc;
+}
+
+.summary-main-box {
+  margin-top: 20px;
+  border: 1.5px solid #cccccc;
+  padding: 12px;
+}
+
+.information-box div div {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.heading-subsection {
+  font-size: 14px;
+  margin: 8px 0px 8px 0px;
+}
+
+.currency {
+  font-weight: bold;
+  padding: 0 73px 0 0;
+  text-align: right;
+  display: flow-root !important;
+}
+
+.dollar {
+  font-weight: bold;
+  align-items: baseline !important;
+}
+
+.dollar-sign {
+  display: none !important;
+}
+
+.heading-saving {
+  font-size: 14px;
+  margin: 8px 0px 8px 0px;
+  /* font-weight: bold; */
+}
+
+.price-headings div {
+  align-items: flex-start;
+}
+
+.disclaimer {
+  font-size: 10px;
+  margin-top: 10px;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.separator-border {
+  border-left: 10px solid #cccccc;
+}
+
+.dotted-top-border {
+  border-top: 4px dotted #cccccc;
+  padding-top: 4px;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.bold-font {
+  font-weight: bold;
+}
+
+.margin-left {
+  margin-left: 10px;
+}
+
+.column-heading {
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  padding: 0 26%;
+  line-height: 1.5em;
+}
+
+.padding-left {
+  padding-left: 10px;
+}
+
+.total-saving {
+  font-size: 17px;
+  font-weight: bolder;
+}
+
+.AR-lables {
+  margin-top: 15px;
+}
+
+.summaryCost {
+  font-weight: bold;
+  text-align: right;
+  display: flow-root !important;
+  max-width: 17% !important;
+}
+
+.setupPageButtons {
+  margin-left: auto;
+}
+
+.topSummarybox {
+  border-right: 2px solid #cccccc;
+  margin-right: 1%;
+}
+
+.topsummaryboxfonts {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.pre-nxt-button {
+  height: 40px;
+  width: 10%;
+  background-color: #04559f;
+  color: rgb(231, 231, 231);
+  float: right;
+  margin: 0px 10px 10px 0px;
+}
+
+:disabled {
+  background-color: grey;
+}
+
+/* css apply when page goes to print */
+
+@media print {
+  .currency {
+    font-weight: 600;
+    padding: 0 33px 0 0;
+    text-align: right;
+    display: flow-root !important;
+  }
+  .column-heading {
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    padding: 0 19%;
+    line-height: 1.5em;
+  }
+  .summaryCost {
+    font-weight: bold;
+    text-align: right;
+    display: flow-root !important;
+    max-width: 28% !important;
+  }
+}
+
+.fnt-size-30 {
+  font-size: 30px;
+}
+
+.btn-primary {
+  width: 100px;
+  height: 50px;
+  display: inline;
+  background: #04559f;
+  color: white;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  display: none;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+
+.modal.fade .modal-dialog {
+  -webkit-transition: -webkit-transform .3s ease-out;
+  -o-transition: -o-transform .3s ease-out;
+  transition: transform .3s ease-out;
+  -webkit-transform: translate(0, -25%);
+  -ms-transform: translate(0, -25%);
+  -o-transform: translate(0, -25%);
+  transform: translate(0, -25%);
+}
+
+.modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 6px;
+  outline: 0;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000;
+}
+
+.modal-backdrop.fade {
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+
+.modal-backdrop.in {
+  filter: alpha(opacity=50);
+  opacity: .5;
+}
+
+.modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.modal-header .close {
+  margin-top: -2px;
+}
+
+.modal-title {
+  margin: 0;
+  line-height: 1.42857143;
+}
+
+.modal-body {
+  position: relative;
+  padding: 15px;
+  text-align: center;
+}
+
+.modal-footer {
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+
+.modal-footer .btn+.btn {
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+
+.modal-footer .btn-group .btn+.btn {
+  margin-left: -1px;
+}
+
+.modal-footer .btn-block+.btn-block {
+  margin-left: 0;
+}
+
+.modal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 600px;
+    margin: 30px auto;
+  }
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+  }
+  .modal-sm {
+    width: 300px;
+  }
+}
+
+@media (min-width: 992px) {
+  .modal-lg {
+    width: 900px;
+  }
+}
+
+.modal-header:before, .modal-header:after, .modal-footer:before, .modal-footer:after {
+  display: table;
+  content: " ";
+}
+
+.modal-header:after, .modal-footer:after {
+  clear: both;
+}
+
+.cdk-overlay-pane {
+  min-width: 65% !important;
+}
+
+.mat-sort-header-container {
+  display: inline-flex !important;
+}
+
+.cdk-global-overlay-wrapper {
+  overflow-y: auto;
+  pointer-events: auto !important;
+}
+
+.fl-right {
+  float: right;
+  cursor: pointer;
+}
+
+.mat-input-element {
+  vertical-align: baseline !important;
+  text-align: inherit;
+  padding: initial !important;
+}
+
+.mat-input-element:focus {
+  outline: 3px solid #90caf9 !important;
+  margin:auto;
+}
+
+.prefix-class {
+  height: 100%;
+  font-size: 14px;
+  width: 94% !important;
+}
+
+.noInputFormat-class {
+  height: 100%;
+  font-size: 14px;
+  width: 100% !important;
+}
+
+.suffix-class {
+  height: 100%;
+  font-size: 14px;
+  width: 90% !important;
+}
+
+/*# sourceMappingURL=bootstrap.css.map */

@@ -1,0 +1,32 @@
+<div class="roi-form-groups" fxLayout="column">
+  <mat-horizontal-stepper fxLayout="column" #stepper>
+    <mat-step *ngFor="let group of formDefinition?.inputGroups">
+      <ng-template matStepLabel>{{group.name}}</ng-template>
+      <app-group-tab [inputGroup]="group" [inputGroups]="formDefinition?.inputGroups"
+        [outputGroups]="formDefinition?.outputGroups">
+
+      </app-group-tab>
+    </mat-step>
+    <mat-step *ngFor="let group of formDefinition?.outputGroups">
+      <ng-template matStepLabel>{{group.name}}</ng-template>
+      <app-group-tab [outputGroup]="group" [inputGroups]="formDefinition?.inputGroups"
+        [outputGroups]="formDefinition?.outputGroups">
+
+      </app-group-tab>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Summary</ng-template>
+      <app-report-type1>
+
+      </app-report-type1>
+    </mat-step>
+  </mat-horizontal-stepper>
+  <div>
+    <button (click)="goForward(stepper)" type="button" class="pre-nxt-button"
+      [disabled]="stepper.selectedIndex === stepper._steps.length-1">Next <i
+        class="fa fa-angle-double-right"></i></button>
+    <button (click)="goBack(stepper)" type="button" class="pre-nxt-button" [disabled]="stepper.selectedIndex === 0"><i class="fa fa-angle-double-left"></i> Back</button>
+
+
+  </div>
+</div>
